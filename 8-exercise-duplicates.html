@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Exercise - remove duplicates from an array</title>
+		<meta charset="UTF-8">
+	</head>
+<body>
+
+	<h2>Exercise - remove duplicates from an array</h2>
+
+	<script>
+		let numArray = [4, 1, 2, 2, 3, 5, 3];
+
+		// 1st way: Using reduce()
+		let newNumArray1 = numArray.reduce((unique, item) => {
+			/* console.log(
+				// a. Item
+				item,
+				// b. Final Array (Accumulator)
+				unique,
+				// c. Condition (Remember it only get pushed if this returns `false`)
+				unique.includes(item),
+				// d. Reducer Function Result
+				unique.includes(item) ? unique : [...unique, item],
+			); */
+		return unique.includes(item) ? unique : [...unique, item];
+		}, []); 
+
+		console.log(newNumArray1);
+
+		// 2nd: Using filter()
+		let newNumArray2 = numArray.filter((item, index) => {
+			/* console.log(
+				// a. Item
+				item,
+				// b. Index
+				index,
+				// c. indexOf
+				numArray.indexOf(item),
+				// d. Condition
+				numArray.indexOf(item) === index,
+			); */
+			return numArray.indexOf(item) === index;
+		});		
+		
+		console.log(newNumArray2);
+
+		// 3rd way: Using reduce()
+		let newNumArray3 = [...new Set(numArray)];
+
+		console.log(newNumArray3);
+
+	</script>
+
+</body>
+</html>
+
+
